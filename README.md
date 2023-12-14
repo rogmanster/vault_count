@@ -10,7 +10,7 @@ export VAULT_TOKEN
 $ ./script <number>
 ```
 
-Note: <number> is how many nested namespaces you'd like to recursively cycle through
+Note: `<number>` is desired nested namespace depth.
 
 ### Example output:
 ```
