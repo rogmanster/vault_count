@@ -11,6 +11,7 @@ $./script <number>
 Note: <number> is how many nested namespaces you'd like to recursively cycle through
 
 ### Example output:
+```
 $ ./script.sh 6
 
 namespace: root
@@ -104,3 +105,4 @@ userpass
 total:       4
 =========================================
 total auth mounts: 30
+```
