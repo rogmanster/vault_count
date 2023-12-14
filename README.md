@@ -3,10 +3,12 @@
 * jq
 
 ### Instructions 
+```
 export VAULT_ADDR
 export VAULT_TOKEN
 
-$./script <number>
+$ ./script <number>
+```
 
 Note: <number> is how many nested namespaces you'd like to recursively cycle through
 
