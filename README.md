@@ -1,5 +1,5 @@
 ### Requirements
-* Vault Binary (ENT)
+* vault binary 
 * jq
 
 ### Instructions 
