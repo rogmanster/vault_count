@@ -23,6 +23,5 @@ do
 done < <(source namespace.sh $1) 
 
 #total counts
-echo
 echo "========================================="
 echo "total auth mounts: $counter"
