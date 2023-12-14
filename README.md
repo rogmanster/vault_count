@@ -1,5 +1,4 @@
 ### Requirements
-* vault binary 
 * jq
 
 ### Instructions 

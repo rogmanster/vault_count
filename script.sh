@@ -1,27 +1,27 @@
 #!/bin/bash
 
-counter=0
+COUNTER=0
 
-#root
-echo namespace: root
-vault auth list -format=json | jq -r '.[].type'
-counter=$(vault auth list -format=json | jq -r '.[].type' | wc -l)
-echo ""
-echo "total:$counter"
+#Root
+echo "NAMESPACE: root"
+curl -s -H "X-Vault-Token: $VAULT_TOKEN" $VAULT_ADDR/v1/sys/auth | jq -r '.["data"][]["type"]'
+COUNTER=$(curl -s -H "X-Vault-Token: $VAULT_TOKEN" $VAULT_ADDR/v1/sys/auth \
+  | jq -r '.["data"][]["type"]' | wc -l)
+echo "TOTAL:$COUNTER"
 
-#namespaces
-while read namespace 
+#Namespaces
+while read NAMESPACE 
 do 
-  total=0
+  TOTAL=0
   echo "========================================="
-  echo "namespace: $namespace"
-  vault auth list -namespace=$namespace -format=json | jq -r '.[].type'
-  total=$(vault auth list -namespace=$namespace -format=json | jq -r '.[].type' | wc -l)
-  echo ""
-  echo "total:$total"
-  ((counter+=total))
+  echo "NAMESPACE: $NAMESPACE"
+  curl -s -H "X-Vault-Token: $VAULT_TOKEN" $ "X-Vault-namespace: $NAMESPACE" $VAULT_ADDR/v1/sys/auth \
+    | jq -r '.["data"][]["type"]'
+  TOTAL=$(curl -s -H "X-Vault-Token: $VAULT_TOKEN" -H "X-Vault-namespace: $NAMESPACE" $VAULT_ADDR/v1/sys/auth \
+    | jq -r '.["data"][]["type"]' | wc -l)
+  echo "TOTAL:$TOTAL"
+  ((COUNTER+=TOTAL))
 done < <(source namespace.sh $1) 
 
-#total counts
 echo "========================================="
-echo "total auth mounts: $counter"
+echo "TOTAL AUTH MOUNTS: $COUNTER"
