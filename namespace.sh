@@ -1,5 +1,7 @@
 #!/bin/sh
 #
+# https://support.hashicorp.com/hc/en-us/articles/10356192771475-How-to-list-Vault-child-namespaces
+#
 # First passing argument is the depth of searching and the second argument is the
 # starting namespace.
 # If the first argument is not an integer then this argument is considered the
