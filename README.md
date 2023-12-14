@@ -1,6 +1,7 @@
 ### Requirements
-* jq
-
+```
+jq
+```
 ### Instructions 
 ```
 export VAULT_ADDR
